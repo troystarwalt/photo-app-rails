@@ -34,8 +34,9 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem "haml"
 gem "haml-rails"
+gem 'foundation-rails'
 
-gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
 gem 'fog'
 group :development, :test do
