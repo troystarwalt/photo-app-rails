@@ -1,2 +1,19 @@
 %h1 Photos#new
 %p Find me in app/views/photos/new.html.haml
+-# = form_for(@photo) do |f|
+-#   .field
+-#     = f.label :description
+-#     = f.text_area :description, placeholder: "What happened on the trip?"
+-#   .field
+-#     = f.label :title
+-#     = f.text_field :title
+-#   .field
+-#     = f.file_field :image
+-#   = f.submit "Photo"
+
+= simple_form_for @photo do |f|
+  = f.input :title
+  = f.input :description
+  = f.input :date_taken, as: :date
+  = f.input :image, as: :file
+  = f.button :submit, "Add Photo"

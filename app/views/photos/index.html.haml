@@ -1,2 +1,9 @@
 %h1 Photos#index
 %p Find me in app/views/photos/index.html.haml
+=link_to 'New', new_photo_path
+- @photos.each do |photo|
+  %ul
+    %li= photo.title
+    %li= photo.description
+    %li= image_tag photo.image.url if photo.image.file
+    =link_to "Delete", photo, :method => :delete

@@ -1,0 +1,7 @@
+%h1 Pages#index
+%p Find me in app/views/pages/index.html.haml
+- @most_recent.each do |photo|
+  %p= photo.title
+  %p= photo.pretty_date
+  = image_tag photo.image.large, alt: photo.title
+  %p= photo.description
