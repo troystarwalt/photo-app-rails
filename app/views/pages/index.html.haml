@@ -15,7 +15,10 @@
         .large-6.columns.photo-grid-item
           %p= photo.title
           %p= photo.pretty_date
+          = link_to "Edit", edit_photo_path(photo)
+          = link_to "Delete", photo, method: :delete, data: {confirm: "You sure?"}
           = image_tag photo.image.large, alt: photo.title
           %p= photo.description
+
   %footer
     = render "partials/footer"

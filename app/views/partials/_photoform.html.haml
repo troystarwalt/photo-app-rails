@@ -1,0 +1,7 @@
+= simple_form_for @photo, html: {multipart: true}  do |f|
+  = f.input :title
+  = f.input :description
+  = f.input :date_taken, as: :date
+  - if current_page?(action: 'new')
+    = f.input :image, as: :file
+  = f.button :submit, "Submit"

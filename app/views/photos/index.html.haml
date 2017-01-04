@@ -6,13 +6,14 @@
   .welcome-msg
     .row
       .column
-        %h1 Hello!
-        %p.lead Welcome to CampCR. This is a story of our adventures while traveling across country in our camper.
-        %p Take a look around. You'll see the latest few photos below. To see them call click on All!
+        %h1 All Photos
   .main-content-container
     .row
       - @photos.each do |photo|
         .large-3.columns.photo-grid-item-wide
-          = image_tag photo.image.grid, alt: photo.title
+          = link_to photo_path(photo) do
+            = image_tag photo.image.grid, alt: photo.title
+          = link_to "Edit", edit_photo_path(photo)
+          = link_to "Delete", photo, method: :delete, data: {confirm: "You sure?"}
   %footer
     = render "partials/footer"
