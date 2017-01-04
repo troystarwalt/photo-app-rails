@@ -1,9 +1,18 @@
-%h1 Photos#new
-%p Find me in app/views/photos/new.html.haml
-= simple_form_for @photo, html: {multipart: true}  do |f|
-  .row
-    = f.input :title
-    = f.input :description
-    = f.input :date_taken, as: :date
-    = f.input :image, as: :file
-    = f.button :submit, "Add Photo"
+.off-canvas-content{"data-off-canvas-content" => ""}
+  .title-bar.hide-for-large
+    .title-bar-left
+      %button.menu-icon{"data-open" => "my-info", :type => "button"}
+      %span.title-bar-title This will change depending on page.
+  .welcome-msg
+    .row
+      .column
+        %h1 New Photo
+  .main-content-container
+    .row
+      .column
+        = simple_form_for @photo, html: {multipart: true}  do |f|
+          = f.input :title
+          = f.input :description
+          = f.input :date_taken, as: :date
+          = f.input :image, as: :file
+          = f.button :submit, "Add Photo"

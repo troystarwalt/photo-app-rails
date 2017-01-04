@@ -1,0 +1,8 @@
+.photo-grid-item:nth-of-type(2n+1) {
+  clear: right;;
+}
+
+
+.photo-grid-item-wide:nth-of-type(4n+1)  {
+  clear: left;
+}

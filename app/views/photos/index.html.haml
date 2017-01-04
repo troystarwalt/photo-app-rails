@@ -1,9 +1,18 @@
-%h1 Photos#index
-%p Find me in app/views/photos/index.html.haml
-=link_to 'New', new_photo_path
-- @photos.each do |photo|
-  %ul
-    %li= photo.title
-    %li= photo.description
-    %li= image_tag photo.image.url if photo.image.file
-    =link_to "Delete", photo, :method => :delete
+.off-canvas-content{"data-off-canvas-content" => ""}
+  .title-bar.hide-for-large
+    .title-bar-left
+      %button.menu-icon{"data-open" => "my-info", :type => "button"}
+      %span.title-bar-title This will change depending on page.
+  .welcome-msg
+    .row
+      .column
+        %h1 Hello!
+        %p.lead Welcome to CampCR. This is a story of our adventures while traveling across country in our camper.
+        %p Take a look around. You'll see the latest few photos below. To see them call click on All!
+  .main-content-container
+    .row
+      - @photos.each do |photo|
+        .large-3.columns.photo-grid-item-wide
+          = image_tag photo.image.grid, alt: photo.title
+  %footer
+    = render "partials/footer"
