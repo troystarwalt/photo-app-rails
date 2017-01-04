@@ -10,9 +10,6 @@
   .main-content-container
     .row
       .column
-        = simple_form_for @photo, html: {multipart: true}  do |f|
-          = f.input :title
-          = f.input :description
-          = f.input :date_taken, as: :date
-          = f.input :image, as: :file
-          = f.button :submit, "Add Photo"
+        = render "partials/photoform"
+  %footer
+    = render "partials/footer"

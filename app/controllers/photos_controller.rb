@@ -4,7 +4,11 @@ class PhotosController < ApplicationController
   end
 
   def show
-    @photo = Photo.find(params[:id])
+    @photo = Photo.find_by_id(params[:id])
+    if @photo.nil?
+      byebug
+      redirect_to root_path
+    end
   end
 
   def new
@@ -26,11 +30,17 @@ class PhotosController < ApplicationController
 
   def destroy
     @photo = Photo.find(params[:id])
-    @photo.destroy
-    redirect_to '/photos'
+    if @photo.destroy
+      puts "deleted"
+      redirect_back(fallback_location: root_path)
+    else
+      puts "couldn't delete"
+      redirect_back(fallback_location: root_path)
+    end
   end
 
   def edit
+    @photo = Photo.find(params[:id])
   end
 
   private

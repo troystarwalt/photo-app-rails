@@ -1,2 +1,18 @@
-%h1 Photos#edit
-%p Find me in app/views/photos/edit.html.haml
+.off-canvas-content{"data-off-canvas-content" => ""}
+  .title-bar.hide-for-large
+    .title-bar-left
+      %button.menu-icon{"data-open" => "my-info", :type => "button"}
+      %span.title-bar-title This will change depending on page.
+  .welcome-msg
+    .row
+      .column
+        %h1 Edit Photo Information
+  .main-content-container
+    .row
+      .column
+        = image_tag @photo.image.large.url
+    .row
+      .column
+        = render "partials/photoform"
+  %footer
+    = render "partials/footer"

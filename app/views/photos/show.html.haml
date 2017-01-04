@@ -1,2 +1,18 @@
-%h1 Photos#show
-%p Find me in app/views/photos/show.html.haml
+.off-canvas-content{"data-off-canvas-content" => ""}
+  .title-bar.hide-for-large
+    .title-bar-left
+      %button.menu-icon{"data-open" => "my-info", :type => "button"}
+      %span.title-bar-title This will change depending on page.
+  .welcome-msg
+    .row
+      .column
+        %h1= @photo.title
+  .main-content-container
+    .row
+      .column
+        = image_tag @photo.image.large.url, alt: @photo.title
+        %p= @photo.description
+        = link_to "Edit", edit_photo_path(@photo)
+        = link_to "Delete", @photo, method: :delete, data: {confirm: "You sure?"}
+  %footer
+    = render "partials/footer"
