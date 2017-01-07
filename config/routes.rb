@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
-  get "log_in" => "sessions#new", :as => "log_in"
-  get "log_out" => "sessions#destroy", :as => "log_out"
+  # get "log_in" => "sessions#new", :as => "log_in"
+  # get "log_out" => "sessions#destroy", :as => "log_out"
 
-  resources :sessions
+  get    '/login',   to: 'sessions#new'
+  post   '/login',   to: 'sessions#create'
+  delete '/logout',  to: 'sessions#destroy'
 
   resources :admins, only: [:new, :create], path_names: {new: 'sign_up'}
 

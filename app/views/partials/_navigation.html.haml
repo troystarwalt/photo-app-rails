@@ -10,10 +10,10 @@
           %li All
         = link_to new_photo_path do
           %li New
-        -# - if current_admin
-        -#   =link_to log_out_path do
-        -#     %li Log out
-        -# - else
-        -#   = link_to log_in_path do
-        -#     %li Log in
+        - if current_admin
+          =link_to logout_path(current_admin.id), method: "delete" do
+            %li Log out
+        - else
+          = link_to login_path do
+            %li Login
   = yield
