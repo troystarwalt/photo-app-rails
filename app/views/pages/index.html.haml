@@ -1,24 +1,18 @@
-.off-canvas-content{"data-off-canvas-content" => ""}
-  .title-bar.hide-for-large
-    .title-bar-left
-      %button.menu-icon{"data-open" => "my-info", :type => "button"}
-      %span.title-bar-title This will change depending on page.
-  .welcome-msg
-    .row
-      .column
-        %h1 Hello!
-        %p.lead Welcome to CampCR. This is a story of our adventures while traveling across country in our camper.
-        %p Take a look around. You'll see the latest few photos below. To see them call click on All!
-  .main-content-container
-    .row
-      - @most_recent.each do |photo|
-        .large-6.columns.photo-grid-item
-          %p= photo.title
-          %p= photo.pretty_date
+.welcome-msg
+  .row
+    .column
+      = render "partials/flashes"
+      %h1 Hello!
+      %p.lead Welcome to CampCR. This is a story of our adventures while traveling across country in our camper.
+      %p Take a look around. You'll see the latest few photos below. To see them all click on All!
+.main-content-container
+  .row
+    - @most_recent.each do |photo|
+      .large-6.columns.photo-grid-item
+        %p= photo.title
+        %p= photo.pretty_date
+        - if current_admin
           = link_to "Edit", edit_photo_path(photo)
           = link_to "Delete", photo, method: :delete, data: {confirm: "You sure?"}
-          = image_tag photo.image.large, alt: photo.title
-          %p= photo.description
-
-  %footer
-    = render "partials/footer"
+        = image_tag photo.image.large, alt: photo.title
+        %p= photo.description

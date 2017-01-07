@@ -1,7 +1,11 @@
 = simple_form_for @photo, html: {multipart: true}  do |f|
   = f.input :title
-  = f.input :description
+  = f.input :description, as: "text"
   = f.input :date_taken, as: :date
   - if current_page?(action: 'new')
-    = f.input :image, as: :file
-  = f.button :submit, "Submit"
+    = f.input :image, as: :file, input_html: { hidden: true, id: "real_file", class: "show-for-sr"}, label: "Upload Photo"
+    .input-append
+      %input#file-display.input-large.uneditable-input{type: "text", disabled: "disabled"}
+      %a#upload-btn.button.warning
+        %i.icon-upload-alt Browse
+  = f.button :submit, "Save"

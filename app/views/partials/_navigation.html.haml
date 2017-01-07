@@ -1,19 +1,19 @@
-.off-canvas-wrapper-inner{"data-off-canvas-wrapper" => ""}
-  #my-info.off-canvas.position-left.reveal-for-large{"data-off-canvas" => "", "data-position" => "left"}
-    .row.column
-      %br/
-      = image_tag "camper.png"
-      = link_to root_path do
-        %h5 CampCR
-      %ul
-        = link_to photos_path do
-          %li All
-        - if current_admin
-          = link_to new_photo_path do
-            %li New
-          =link_to logout_path(current_admin.id), method: "delete" do
-            %li Log out
-        - else
-          = link_to login_path do
-            %li Login
-  = yield
+#my-info.off-canvas.position-left.reveal-for-large{"data-off-canvas" => "", "data-position" => "left"}
+  .row.column
+    %br/
+    = image_tag "camper.png"
+    = link_to root_path do
+      %h5 CampCR
+    %ul
+      = link_to photos_path do
+        %li All Photos
+      - if current_admin
+        = link_to new_photo_path do
+          %li Add Photo
+        =link_to logout_path(current_admin.id), method: "delete" do
+          %li Log out
+        = link_to new_admin_path do
+          %li New Admin Account
+      - else
+        = link_to login_path do
+          %li Login

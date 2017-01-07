@@ -6,7 +6,6 @@ class PhotosController < ApplicationController
   def show
     @photo = Photo.find_by_id(params[:id])
     if @photo.nil?
-      byebug
       redirect_to root_path
     end
   end
@@ -40,7 +39,12 @@ class PhotosController < ApplicationController
   end
 
   def edit
-    @photo = Photo.find(params[:id])
+    if current_admin
+      @photo = Photo.find(params[:id])
+    else
+      flash.alert = "Sorry, you aren't allowed there."
+      redirect_to root_url
+    end
   end
 
   private

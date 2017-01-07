@@ -1,19 +1,14 @@
-.off-canvas-content{"data-off-canvas-content" => ""}
-  .title-bar.hide-for-large
-    .title-bar-left
-      %button.menu-icon{"data-open" => "my-info", :type => "button"}
-      %span.title-bar-title This will change depending on page.
-  .welcome-msg
-    .row
-      .column
-        %h1 All Photos
-  .main-content-container
-    .row
-      - @photos.each do |photo|
-        .large-3.columns.photo-grid-item-wide
-          = link_to photo_path(photo) do
-            = image_tag photo.image.grid, alt: photo.title
+.welcome-msg
+  .row
+    .column
+      = render "partials/flashes"
+      %h1 All Photos
+.main-content-container
+  .row
+    - @photos.each do |photo|
+      .small-3.columns.photo-grid-item-wide
+        = link_to photo_path(photo) do
+          = image_tag photo.image.grid, alt: photo.title
+        - if current_admin
           = link_to "Edit", edit_photo_path(photo)
           = link_to "Delete", photo, method: :delete, data: {confirm: "You sure?"}
-  %footer
-    = render "partials/footer"

@@ -1,22 +1,18 @@
-.off-canvas-content{"data-off-canvas-content" => ""}
-  .title-bar.hide-for-large
-    .title-bar-left
-      %button.menu-icon{"data-open" => "my-info", :type => "button"}
-      %span.title-bar-title This will change depending on page.
-  .welcome-msg
-    .row
-      .column
-        %h1 New Photo
-  .main-content-container
-    .row
-      .column
-        = simple_form_for @admin do |f|
-          - if @admin.errors.any?
-            .error-messages
-              %h2 Errors
-              %ul
-                %li= message
-          = f.input :email
-          = f.input :password
-          = f.input :password_confirmation
-          = f.button :submit
+.welcome-msg
+  .row
+    .column
+      = render "partials/flashes"
+      %h1 Create Another Admin
+.main-content-container
+  .row
+    .columns.medium-6
+      = simple_form_for @admin do |f|
+        - if @admin.errors.any?
+          .error-messages
+            %h2 Errors
+            %ul
+              %li= message
+        = f.input :email
+        = f.input :password
+        = f.input :password_confirmation
+        = f.button :submit

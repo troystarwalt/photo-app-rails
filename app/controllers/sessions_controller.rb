@@ -6,9 +6,9 @@ class SessionsController < ApplicationController
     admin = Admin.authenticate(params[:session][:email], params[:session][:password])
     if admin
       log_in admin
-      redirect_to root_url, notice: "Logged in!"
+      redirect_to root_url, notice: "Welcome back #{admin.email}!"
     else
-      flash.now.alert = "Invalid email or password"
+      flash.now.alert = "Invalid email or password."
       render "new"
     end
   end
