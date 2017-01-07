@@ -12,5 +12,7 @@
     = csrf_meta_tag
 
   %body
+    :javascript
+      $(function(){ $(document).foundation(); });
     .off-canvas-wrapper
       = render "partials/navigation"
