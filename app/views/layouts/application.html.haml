@@ -12,6 +12,8 @@
     = csrf_meta_tag
 
   %body
+    :javascript
+      $(function(){ $(document).foundation(); });
     - flash.each do |name, msg|
       = content_tag :div, msg, id: "flash#{name}"
     .off-canvas-wrapper
