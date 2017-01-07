@@ -1,0 +1,22 @@
+.off-canvas-content{"data-off-canvas-content" => ""}
+  .title-bar.hide-for-large
+    .title-bar-left
+      %button.menu-icon{"data-open" => "my-info", :type => "button"}
+      %span.title-bar-title This will change depending on page.
+  .welcome-msg
+    .row
+      .column
+        %h1 Login
+  .main-content-container
+    .row
+      .column
+        = form_tag sessions_path do |f|
+          %p
+            = label_tag :email
+            %br
+            = text_field_tag :email, params[:email]
+          %p
+            = label_tag :password
+            %br
+            = password_field_tag :password
+          = button_tag :submit

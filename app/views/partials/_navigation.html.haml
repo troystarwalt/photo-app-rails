@@ -9,5 +9,11 @@
         = link_to photos_path do
           %li All
         = link_to new_photo_path do
-          %li New          
+          %li New
+        -# - if current_admin
+        -#   =link_to log_out_path do
+        -#     %li Log out
+        -# - else
+        -#   = link_to log_in_path do
+        -#     %li Log in
   = yield

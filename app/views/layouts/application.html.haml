@@ -12,5 +12,7 @@
     = csrf_meta_tag
 
   %body
+    - flash.each do |name, msg|
+      = content_tag :div, msg, id: "flash#{name}"
     .off-canvas-wrapper
       = render "partials/navigation"
