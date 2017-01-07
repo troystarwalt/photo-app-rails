@@ -6,9 +6,11 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should logout" do
-    get logout_path
-    assert_response :success
-  end
+
+
+  # test "should logout" do
+  #   get logout_path
+  #   assert_response :success
+  # end
 
 end

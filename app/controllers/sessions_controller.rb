@@ -4,9 +4,8 @@ class SessionsController < ApplicationController
 
   def create
     admin = Admin.authenticate(params[:session][:email], params[:session][:password])
-    byebug
     if admin
-      session[:admin_id] = admin.id
+      log_in admin
       redirect_to root_url, notice: "Logged in!"
     else
       flash.now.alert = "Invalid email or password"

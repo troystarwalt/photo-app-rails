@@ -8,9 +8,9 @@
       %ul
         = link_to photos_path do
           %li All
-        = link_to new_photo_path do
-          %li New
         - if current_admin
+          = link_to new_photo_path do
+            %li New
           =link_to logout_path(current_admin.id), method: "delete" do
             %li Log out
         - else

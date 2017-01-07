@@ -7,6 +7,12 @@ class Admin < ApplicationRecord
   validates_presence_of :email
   validates_uniqueness_of :email
 
+  # def Admin.digest(string)
+  #   cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+  #                                                 BCrypt::Engine.cost
+  #   BCrypt::Password.create(string, cost: cost)
+  # end
+
   def encrypt_password
     if password.present?
       self.password_salt = BCrypt::Engine.generate_salt
