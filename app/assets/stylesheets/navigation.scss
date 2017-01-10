@@ -1,0 +1,17 @@
+#sidebar_navigation {
+  background-color: $my_black
+}
+
+.nav-link {
+  color: $primary_green;
+  ul {
+    margin-left: 0;
+    li {
+      font-size: inherit;
+      border: 1px solid;
+      text-align: center;
+      padding: 10px;
+      margin: 9px 0;
+    }
+  }
+}

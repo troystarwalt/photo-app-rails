@@ -1,19 +1,19 @@
-#my-info.off-canvas.position-left.reveal-for-large{"data-off-canvas" => "", "data-position" => "left"}
+#sidebar_navigation.off-canvas.position-left.reveal-for-large{"data-off-canvas" => "", "data-position" => "left"}
   .row.column
     %br/
     = image_tag "camper.png"
     = link_to root_path do
-      %h5 CampCR
+      %h5.site-title.nav-link CampCR
     %ul
-      = link_to photos_path do
+      = link_to photos_path, class: "nav-link" do
         %li All Photos
       - if current_admin
-        = link_to new_photo_path do
+        = link_to new_photo_path, class: "nav-link"  do
           %li Add Photo
-        =link_to logout_path(current_admin.id), method: "delete" do
+        =link_to logout_path(current_admin.id), class: "nav-link", method: "delete" do
           %li Log out
-        = link_to new_admin_path do
+        = link_to new_admin_path, class: "nav-link"  do
           %li New Admin Account
       - else
-        = link_to login_path do
+        = link_to login_path, class: "nav-link"  do
           %li Login
