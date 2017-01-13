@@ -1,15 +1,9 @@
-.off-canvas-content{"data-off-canvas-content" => ""}
-  .title-bar.hide-for-large
-    .title-bar-left
-      %button.menu-icon{"data-open" => "my-info", :type => "button"}
-      %span.title-bar-title This will change depending on page.
-  .welcome-msg
-    .row
-      .column
-        %h1 New Photo
-  .main-content-container
-    .row
-      .column
-        = render "partials/photoform"
-  %footer
-    = render "partials/footer"
+.header-msg
+  .row
+    .column
+      = render "partials/flashes"
+      %h1 New Photo
+.main-content-container
+  .row
+    .columns.medium-6
+      = render "partials/photoform"

@@ -1,0 +1,34 @@
+#sidebar_navigation {
+  background-color: $my_black;
+  text-align: center;
+  .site-logo-and-header {
+    color: $my_light_grey;
+  }
+  h2 {
+    display: inline-block;
+    font-family: $site_title_font;
+  }
+}
+
+.site-title {
+  margin-left: 15px;
+  display: inline-block;
+  .title-bar-title {
+    font-family: Helvetica;
+  }
+}
+
+ul {
+  margin-left: 0;
+  list-style-type: none;
+  .nav-link {
+    color: $primary_green;
+    li {
+      font-size: inherit;
+      border: 1px solid;
+      text-align: center;
+      padding: 10px;
+      margin: 9px 0;
+    }
+  }
+}

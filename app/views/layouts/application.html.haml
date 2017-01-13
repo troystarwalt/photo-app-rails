@@ -12,5 +12,18 @@
     = csrf_meta_tag
 
   %body
+    :javascript
+      $(function(){ $(document).foundation(); });
     .off-canvas-wrapper
-      = render "partials/navigation"
+      .off-canvas-wrapper-inner{"data-off-canvas-wrapper" => ""}
+        = render "partials/navigation"
+        .off-canvas-content{"data-off-canvas-content" => ""}
+          .title-bar.hide-for-large
+            .title-bar-left
+              %button.menu-icon{"data-open" => "sidebar_navigation", :type => "button"}
+              .site-title
+                %i.fa.fa-truck.fa-lg
+                %span.title-bar-title CampCR
+          = yield
+          %footer
+            = render "partials/footer"

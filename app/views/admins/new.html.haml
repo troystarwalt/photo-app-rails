@@ -1,0 +1,18 @@
+.header-msg
+  .row
+    .column
+      = render "partials/flashes"
+      %h1 Create Another Admin
+.main-content-container
+  .row
+    .columns.medium-6
+      = simple_form_for @admin do |f|
+        - if @admin.errors.any?
+          .error-messages
+            %h2 Errors
+            %ul
+              %li= message
+        = f.input :email
+        = f.input :password
+        = f.input :password_confirmation
+        = f.button :submit
