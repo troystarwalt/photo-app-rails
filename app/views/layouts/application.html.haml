@@ -21,7 +21,9 @@
           .title-bar.hide-for-large
             .title-bar-left
               %button.menu-icon{"data-open" => "sidebar_navigation", :type => "button"}
-              %span.title-bar-title CampCR
+              .site-title
+                %i.fa.fa-truck.fa-lg
+                %span.title-bar-title CampCR
           = yield
           %footer
             = render "partials/footer"

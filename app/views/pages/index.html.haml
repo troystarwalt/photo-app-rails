@@ -1,15 +1,15 @@
-.welcome-msg
+.header-msg
   .row
     .column
       = render "partials/flashes"
-      %h1 Hello!
-      %p.lead Welcome to CampCR. This is a story of our adventures while traveling across country in our camper.
+      %h1 Welcome to CampCR!
+      %p.lead This is a photo journey of our adventures while traveling across country in our camper.
       %p Take a look around. You'll see the latest few photos below. To see them all click on All!
 .main-content-container
   .row
     - @most_recent.each do |photo|
       .large-6.columns.photo-grid-item
-        %p= photo.title
+        %h2= photo.title
         %p= photo.pretty_date
         - if current_admin
           = link_to "Edit", edit_photo_path(photo)
